@@ -3,12 +3,13 @@ import HeroImg from "../assets/banner-stack.png";
 export const Hero = () => {
   return (
     <section>
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-16 sm:px-8 lg:flex-row lg:justify-between lg:gap-10 lg:px-20 lg:py-24">
+      {/* // Hero */}
+      <div className="keep-content-center flex flex-col items-center gap-12 py-16 lg:flex-row lg:justify-between lg:gap-10 lg:py-24">
         {/* Left side of hero */}
         <div className="max-w-xl text-center lg:text-left">
           <h1 className="text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
             Build Your Ideal{" "}
-            <span className="bg-linear-to-r from-orange-500 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="whitespace-nowrap bg-linear-to-r from-orange-500 via-pink-600 to-purple-600 bg-clip-text text-transparent">
               Development Stack
             </span>
           </h1>

@@ -15,15 +15,15 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative border-b border-slate-200">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-8 lg:px-20">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+      {/*Navbar*/}
+      <nav className="keep-content-center flex items-center justify-between py-5">
+        {/*Logo*/}
         <img
           src={LogoText}
           alt="DevStack Logo"
           className="h-7 w-auto shrink-0"
         />
-
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 font-light text-slate-600 md:flex">
           {navLinks.map((link, i) => (
