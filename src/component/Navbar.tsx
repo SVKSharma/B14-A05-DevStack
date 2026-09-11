@@ -32,8 +32,8 @@ export const Navbar = () => {
                 href={link.href}
                 className={
                   i === 0
-                    ? "text-pink-600"
-                    : "transition-colors hover:text-pink-600"
+                    ? "cursor-pointer text-pink-600"
+                    : "cursor-pointer transition-colors hover:text-pink-600"
                 }
               >
                 {link.label}
@@ -44,17 +44,17 @@ export const Navbar = () => {
 
         {/* Desktop auth buttons */}
         <div className="gap-1 hidden md:flex">
-          <button className="rounded-full border-none px-5 py-2.5 font-light text-slate-700 transition-colors hover:bg-slate-50">
+          <button className="cursor-pointer rounded-full border-none px-5 py-2.5 font-light text-slate-700 transition-colors hover:bg-slate-50">
             Sign In
           </button>
-          <button className="rounded-full bg-pink-600 px-6 py-2.5 text-white transition-colors hover:bg-pink-700">
+          <button className="cursor-pointer rounded-full bg-pink-600 px-6 py-2.5 text-white transition-colors hover:bg-pink-700">
             Sign Up
           </button>
         </div>
 
         {/* Mobile menu toggle */}
         <button
-          className="relative flex h-10 w-10 items-center justify-center md:hidden"
+          className="relative flex h-10 w-10 cursor-pointer items-center justify-center md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
@@ -86,17 +86,17 @@ export const Navbar = () => {
           <ul className="flex flex-col gap-4 pt-4 font-light text-slate-600">
             {navLinks.map((link, i) => (
               <li key={link.label}>
-                <a href={link.href} className={i === 0 ? "text-pink-600" : ""}>
+                <a href={link.href} className={i === 0 ? "cursor-pointer text-pink-600" : "cursor-pointer"}>
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
           <div className="mt-5 flex gap-3">
-            <button className="flex-1 rounded-full border border-slate-200 px-5 py-2.5 font-semibold text-slate-700">
+            <button className="flex-1 cursor-pointer rounded-full border border-slate-200 px-5 py-2.5 font-semibold text-slate-700">
               Sign In
             </button>
-            <button className="flex-1 rounded-full bg-pink-600 px-6 py-2.5 font-semibold text-white">
+            <button className="flex-1 cursor-pointer rounded-full bg-pink-600 px-6 py-2.5 font-semibold text-white">
               Sign Up
             </button>
           </div>

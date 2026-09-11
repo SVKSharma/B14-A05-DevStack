@@ -4,6 +4,7 @@ import { Hero } from './component/Hero'
 import { TechBoard } from './component/DevBoard'
 import type { DevStackType } from './types/DevStackType'
 import { Suspense, useState } from 'react'
+import { Footer } from './component/Footer'
 
 const FetchDevStackData = async ():Promise<DevStackType[]>=>{
   const response = await fetch("/Data.json");
@@ -20,6 +21,7 @@ function App() {
       <Suspense fallback={<h1>Loading DevStack...</h1>}>
         <TechBoard devStackData={devStackData}></TechBoard>
       </Suspense>
+      <Footer></Footer>
     </>
   )
 }
