@@ -19,6 +19,8 @@ createRoot(document.getElementById("root")!).render(
       pauseOnHover
       theme="light"
       transition={Slide}
+      className="z-9999"
+      toastClassName="mx-2"
     />
   </StrictMode>,
 );
