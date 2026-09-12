@@ -1,8 +1,9 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { FastAverageColor } from "fast-average-color";
 import type { DevStackType } from "../types/DevStackType"; 
-import { TiStarFullOutline } from "react-icons/ti";
+import { TiStarFullOutline, TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
+import { FaCheckCircle } from "react-icons/fa";
 
 const fac = new FastAverageColor();
 
@@ -92,7 +93,13 @@ export const StackCard = ({ stack, devStackList, setDevStackList, isSelected}: S
               : "bg-slate-900 hover:bg-slate-800"
           }`}
         >
-          {isSelected ? "Added" : "Add to Stack"}
+          {isSelected ? (
+            <span className="flex items-center font-bold justify-center gap-1">
+              <FaCheckCircle/> Added
+            </span>
+          ) : (
+            "Add to Stack"
+          )}
         </button>
       </div>
     </div>
