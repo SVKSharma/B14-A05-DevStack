@@ -66,7 +66,7 @@ export const AddedDevStackList = ({devStackList,setDevStackList}: AddedDevStackL
       {devStackList.length > 0 && (
         <button
           onClick={()=>handelRemoveAll()}
-          className="btn btn-outline font-bold btn-error mt-6 w-full rounded-lg border-slate-200 text-red-500 hover:bg-red-50 hover:border-red-500"
+          className="btn btn-outline font-bold btn-error mt-6 w-full rounded-lg border-slate-200 text-red-600 hover:bg-red-50 hover:border-red-600"
         >
           Remove All
         </button>

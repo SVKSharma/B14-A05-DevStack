@@ -3,8 +3,8 @@ import HeroImg from "../assets/banner-stack.png";
 export const Hero = () => {
   return (
     <section>
-      {/* // Hero */}
-      <div className="keep-content-center flex flex-col items-center gap-12 py-16 lg:flex-row lg:justify-between lg:gap-10 lg:py-24">
+      {/* Hero */}
+      <div className="keep-content-center flex flex-col items-center gap-12 py-16 lg:flex-row lg:justify-between lg:gap-10 lg:py-6">
         {/* Left side of hero */}
         <div className="max-w-xl text-center lg:text-left">
           <h1 className="text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
