@@ -5,6 +5,7 @@ import { TechBoard } from './component/DevBoard'
 import type { DevStackType } from './types/DevStackType'
 import { Suspense, useState } from 'react'
 import { Footer } from './component/Footer'
+import { FallbackSpinner } from './component/FallbackSpinner'
 
 const FetchDevStackData = async ():Promise<DevStackType[]>=>{
   const response = await fetch("/Data.json");
@@ -18,12 +19,12 @@ function App() {
     <>
       <Navbar></Navbar>
       <Hero></Hero>
-      <Suspense fallback={<h1>Loading DevStack...</h1>}>
+      <Suspense fallback={<FallbackSpinner />}>
         <TechBoard devStackData={devStackData}></TechBoard>
       </Suspense>
       <Footer></Footer>
     </>
-  )
+  );
 }
 
 export default App
