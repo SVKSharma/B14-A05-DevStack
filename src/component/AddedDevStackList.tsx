@@ -13,14 +13,14 @@ export const AddedDevStackList = ({devStackList,setDevStackList}: AddedDevStackL
     const stack = devStackList.find((eachStack) => eachStack.id === id);
     if (stack) {
       setDevStackList(devStackList.filter((eachStack) => eachStack.id !== id));
-      toast.info(`${stack.name} removed from the DevStack!`);
+      toast.info(`${stack.name} has been removed from your stack.`);
     }
   };
 
   const handelRemoveAll = ()=>{
     if(devStackList.length>0){
       setDevStackList([]);
-      toast.info("All DevStacks are cleared!")
+      toast.info("All technologies have been removed from your stack.");
     }
   }
 

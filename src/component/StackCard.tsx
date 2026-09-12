@@ -34,10 +34,10 @@ export const StackCard = ({ stack, devStackList, setDevStackList, isSelected}: S
 
   const handelAddToDevStack = (id: string) => {
     if(devStackList.some((eachStack) => eachStack.id === id)){
-      toast.error(`${stack.name} is already added to the stack`)
+      toast.error(`${stack.name} has already been added to your stack.`);
     }else if(!devStackList.some((eachStack) => eachStack.id === id)) {
       setDevStackList([...devStackList, stack]);
-      toast.success(`${stack.name} added to the stack successfully`);
+      toast.success(`${stack.name} has been added to your stack.`);
     }
   }
 
