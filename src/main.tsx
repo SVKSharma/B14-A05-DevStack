@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
       pauseOnHover
       theme="light"
       transition={Slide}
-      className="z-9999"
+      className="z-9999 bottom-3! left-6! right-2! w-auto! sm:bottom-4! sm:left-auto! sm:right-4!"
       toastClassName="mx-2"
     />
   </StrictMode>,
