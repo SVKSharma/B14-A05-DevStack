@@ -2,7 +2,7 @@ import LogoText from "../assets/logo-text.png";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-slate-100">
+    <footer>
       <div className="keep-content-center py-16">
         <div className="flex flex-col gap-12 text-center lg:flex-row lg:justify-between lg:text-left">
           {/* Brand */}

@@ -13,14 +13,14 @@ export const AddedDevStackList = ({devStackList,setDevStackList}: AddedDevStackL
     const stack = devStackList.find((eachStack) => eachStack.id === id);
     if (stack) {
       setDevStackList(devStackList.filter((eachStack) => eachStack.id !== id));
-      toast.info(`${stack.name} removed from the DevStack!`);
+      toast.info(`${stack.name} has been removed from your stack.`);
     }
   };
 
   const handelRemoveAll = ()=>{
     if(devStackList.length>0){
       setDevStackList([]);
-      toast.info("All DevStacks are cleared!")
+      toast.info("All technologies have been removed from your stack.");
     }
   }
 
@@ -66,7 +66,7 @@ export const AddedDevStackList = ({devStackList,setDevStackList}: AddedDevStackL
       {devStackList.length > 0 && (
         <button
           onClick={()=>handelRemoveAll()}
-          className="btn btn-outline btn-error mt-6 w-full rounded-lg border-slate-200 text-rose-500 hover:bg-rose-50 hover:border-rose-200"
+          className="btn btn-outline font-bold btn-error mt-6 w-full rounded-lg border-slate-200 text-red-600 hover:bg-red-50 hover:border-red-600"
         >
           Remove All
         </button>
