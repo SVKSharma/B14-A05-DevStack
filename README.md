@@ -128,8 +128,11 @@ src/
 Node.js 18+, npm, and Git.
 
 ```bash
-# Clone the repository
-git clone <your-repository-url>
+# Clone the repository using HTTPS
+git clone https://github.com/SVKSharma/B14-A05-DevStack.git
+
+# Or clone the repository using SSH
+git clone git@github.com:SVKSharma/B14-A05-DevStack.git
 
 # Move into the project folder
 cd DevStack
