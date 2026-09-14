@@ -1,6 +1,6 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { FastAverageColor } from "fast-average-color";
-import type { DevStackType } from "../types/DevStackType"; 
+import type { DevStackType } from "../../types/DevStackType"; 
 import { TiStarFullOutline} from "react-icons/ti";
 import { toast } from "react-toastify";
 import { FaCheckCircle } from "react-icons/fa";
