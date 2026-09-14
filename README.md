@@ -89,6 +89,8 @@ Built on a modern React and TypeScript foundation, with Vite for fast developmen
 ```bash
 src/
 ├── assets/
+│   ├── banner-stack.png
+│   └── logo-text.png
 ├── components/
 │   ├── hero/
 │   │   └── Hero.tsx
@@ -115,14 +117,14 @@ src/
 |---|---|
 | `App.tsx` | Loads technology data and composes the main page sections |
 | `main.tsx` | Renders the app and configures Toastify |
-| `Hero.tsx` | Displays the page hero section |
-| `TechBoard.tsx` | Displays technology cards and manages the selected stack |
-| `StackCard.tsx` | Displays a single technology and handles adding it to the stack |
-| `YourStack.tsx` | Displays selected technologies and handles removal |
-| `Navbar.tsx` | Displays the navigation bar |
-| `Footer.tsx` | Displays the page footer |
-| `FallbackSpinner.tsx` | Displays the loading state |
-| `DevStackType.ts` | Defines the TypeScript structure for technology data |
+| `components/hero/Hero.tsx` | Displays the page hero section |
+| `components/tech-board/TechBoard.tsx` | Displays technology cards and manages the selected stack |
+| `components/tech-board/StackCard.tsx` | Displays a single technology and handles adding it to the stack |
+| `components/tech-board/YourStack.tsx` | Displays selected technologies and handles removal |
+| `components/layout/Navbar.tsx` | Displays the navigation bar |
+| `components/layout/Footer.tsx` | Displays the page footer |
+| `components/ui/FallbackSpinner.tsx` | Displays the loading state |
+| `types/DevStackType.ts` | Defines the TypeScript structure for technology data |
 | `public/Data.json` | Stores the technology records used by the application |
 
 ---
