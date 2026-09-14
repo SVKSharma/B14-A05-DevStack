@@ -89,16 +89,18 @@ Built on a modern React and TypeScript foundation, with Vite for fast developmen
 ```bash
 src/
 ├── assets/
-│   ├── banner-stack.png
-│   └── logo-text.png
-├── component/
-│   ├── AddedDevStackList.tsx
-│   ├── DevBoard.tsx
-│   ├── FallbackSpinner.tsx
-│   ├── Footer.tsx
-│   ├── Hero.tsx
-│   ├── Navbar.tsx
-│   └── StackCard.tsx
+├── components/
+│   ├── hero/
+│   │   └── Hero.tsx
+│   ├── layout/
+│   │   ├── Footer.tsx
+│   │   └── Navbar.tsx
+│   ├── tech-board/
+│   │   ├── StackCard.tsx
+│   │   ├── TechBoard.tsx
+│   │   └── YourStack.tsx
+│   └── ui/
+│       └── FallbackSpinner.tsx
 ├── types/
 │   └── DevStackType.ts
 ├── App.css
@@ -113,9 +115,12 @@ src/
 |---|---|
 | `App.tsx` | Loads technology data and composes the main page sections |
 | `main.tsx` | Renders the app and configures Toastify |
-| `DevBoard.tsx` | Displays technology cards and manages the selected stack |
+| `Hero.tsx` | Displays the page hero section |
+| `TechBoard.tsx` | Displays technology cards and manages the selected stack |
 | `StackCard.tsx` | Displays a single technology and handles adding it to the stack |
-| `AddedDevStackList.tsx` | Displays selected technologies and handles removal |
+| `YourStack.tsx` | Displays selected technologies and handles removal |
+| `Navbar.tsx` | Displays the navigation bar |
+| `Footer.tsx` | Displays the page footer |
 | `FallbackSpinner.tsx` | Displays the loading state |
 | `DevStackType.ts` | Defines the TypeScript structure for technology data |
 | `public/Data.json` | Stores the technology records used by the application |
@@ -161,68 +166,31 @@ npm run preview  # Preview the production build locally
 
 **1. What is JSX, and why is it used in React?**
 
-```bash
-JSX lets you write HTML-like syntax directly inside JavaScript. React
-compiles it into function calls under the hood, but writing markup
-this way is far more readable than building elements manually with
-JS, which is why it's the standard way to write React components.
-```
+JSX stands for JavaScript XML. It is a syntax extension created by React that allows us to write HTML/XML-like markup directly inside our JavaScript files. Under the hood, React compiles this JSX into standard JavaScript function calls (like `React.createElement`). We use it because writing complex UI structures using pure JavaScript objects is incredibly tedious and hard to read. JSX gives us the visual clarity of HTML while keeping the full programming power and logic of JavaScript right there in the component.
 
 **2. What is the difference between props and state?**
 
-```bash
-Props are values passed down from a parent component to a child —
-the child can read them but never modify them directly. State is
-data owned by the component itself, which can change over time and
-triggers a re-render whenever it's updated.
-```
+The main difference lies in who owns and controls the data. Props (short for properties) are strictly for passing data down from a parent component to a child. We can think of passing props exactly like passing arguments into a normal JavaScript function—it is the same core concept in React. They are read-only, meaning the child cannot modify its own props. State, on the other hand, is the component's internal, personal memory. A component completely owns and manages its state, and whenever this state is updated (using a setter function), React automatically re-renders that specific component to reflect the new data on the screen.
 
 **3. What does the `useState` hook do, and where did you use it in this project?**
 
-```bash
-useState lets a component hold a value across renders and re-render
-whenever that value changes. In this project, it stores the loaded
-technology list and tracks which items are currently in the
-"Your Stack" panel.
-```
+The `useState` hook allows functional components to remember and manage data across multiple renders. When the state value changes, it triggers the component to re-render and update the UI. In this DevStack project, I used it in a few crucial places. For example, I used it to store the main array of technology data after fetching it from the JSON file. I also used `useState` to maintain the "Your Stack" list, keeping track of which specific tools the user has added or removed during their session.
 
 **4. What does the `useEffect` hook do, and why did you need it to load the JSON data?**
 
-```bash
-useEffect runs code after render in response to side effects, like
-data fetching. Since loading Data.json is asynchronous, useEffect
-was necessary to wait for the data to resolve before rendering it —
-without it, the component would try to render a pending Promise
-instead of the actual data.
-```
+The `useEffect` hook is used to handle side effects in React—operations that reach outside the normal component rendering cycle, like fetching data, manually changing the DOM, or setting up timers. I needed to use it for loading `Data.json` because fetching data is an asynchronous process. If I tried to load it directly in the component body without `useEffect`, React wouldn't wait for the data to arrive; it would try to render a pending Promise, causing an error. By wrapping the fetch call in `useEffect`, I ensured the data was fetched exactly once right after the component mounted.
 
 **5. Why does every item in a `.map()` list need a unique `key` prop?**
 
-```bash
-React uses the key prop to track which specific item was added,
-removed, or changed between renders. Without a unique key, React
-can misidentify list items, leading to incorrect updates or
-unnecessary re-renders.
-```
+When rendering a list dynamically using `.map()`, React uses the `key` prop as a unique identifier for each element. This helps React's virtual DOM diffing algorithm figure out exactly which items have been added, removed, or modified between renders. If we don't provide a unique key (or just use array indexes, which is a bad practice for dynamic lists), React gets confused when the list order changes. This can lead to weird UI bugs, incorrect state mapping, or completely unnecessary re-renders of the entire list instead of just the changed item.
 
 **6. What is conditional rendering? Show one place you used it.**
 
-```bash
-Conditional rendering means displaying different UI based on a
-condition, similar to an if-else check inside the markup. In this
-project, the sidebar renders "Your stack is empty" when the stack
-array has no items, and maps over the selected technologies
-otherwise.
-```
+Conditional rendering in React is the practice of dynamically displaying different UI elements based on certain conditions or state values, very much like using standard JavaScript if-else or ternary operators. It allows the interface to react to different scenarios. A clear example in my project is the "Your Stack" sidebar. I used a conditional check on the stack array's length. If the length is zero, the UI renders an empty state message saying "Your stack is empty." If there are items, it maps through the array and renders the selected technology cards instead.
 
 **7. How do you pass data from a parent component to a child, and how does a child send something back to the parent?**
 
-```bash
-Data flows down from parent to child through props. To send data
-back up, the parent passes a function as a prop; the child calls
-that function with the relevant data as an argument, and the parent
-updates its own state accordingly.
-```
+Passing data downwards from a parent to a child is straightforward: you pass it through props, similar to how you give attributes to standard HTML tags. However, because data flow in React is strictly one-way (top-down), a child cannot send data back up directly. To solve this, the parent must pass down a callback function as a prop to the child. When the child wants to send data back, it simply executes that function and passes the necessary data as arguments. The parent then receives this data and can use it to update its own state.
 
 ---
 

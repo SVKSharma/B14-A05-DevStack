@@ -1,11 +1,11 @@
 import './App.css'
-import { Navbar } from './component/Navbar'
-import { Hero } from './component/Hero'
-import { TechBoard } from './component/DevBoard'
+import { Navbar } from './components/layout/Navbar'
+import { Hero } from './components/hero/Hero'
+import { TechBoard } from './components/tech-board/TechBoard'
 import type { DevStackType } from './types/DevStackType'
 import { Suspense, useState } from 'react'
-import { Footer } from './component/Footer'
-import { FallbackSpinner } from './component/FallbackSpinner'
+import { Footer } from './components/layout/Footer'
+import { FallbackSpinner } from './components/ui/FallbackSpinner'
 
 const FetchDevStackData = async ():Promise<DevStackType[]>=>{
   const response = await fetch("/Data.json");

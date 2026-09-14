@@ -1,7 +1,7 @@
 import { use, useState } from "react";
-import type { DevStackType } from "../types/DevStackType";
+import type { DevStackType } from "../../types/DevStackType";
 import { StackCard } from "./StackCard";
-import { AddedDevStackList } from "./AddedDevStackList";
+import { AddedDevStackList } from "./YourStack";
 
 interface DevBoardType{
   devStackData:Promise<DevStackType[]>;
