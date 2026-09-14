@@ -1,4 +1,4 @@
-import LogoText from "../assets/logo-text.png";
+import LogoText from "../../assets/logo-text.png";
 
 export const Footer = () => {
   return (

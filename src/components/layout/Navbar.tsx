@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LogoText from "../assets/logo-text.png";
+import LogoText from "../../assets/logo-text.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 
